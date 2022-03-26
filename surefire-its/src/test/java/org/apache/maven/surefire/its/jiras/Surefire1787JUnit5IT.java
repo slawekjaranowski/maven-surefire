@@ -94,6 +94,17 @@ public class Surefire1787JUnit5IT extends SurefireJUnit4IntegrationTestCase
     }
 
     @Test
+    public void testNgOnlyWithJUnitPlatform()
+    {
+        unpack( "junit5-testng-only" )
+            .executeTest()
+            .verifyErrorFree( 1 )
+            .verifyTextInLog( "Running pkg.TestNGTest" )
+            .verifyTextInLog(
+                "Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider" );
+    }
+
+    @Test
     public void testNgWithJupiterApi()
     {
         unpack( "junit5-testng" )
@@ -104,7 +115,6 @@ public class Surefire1787JUnit5IT extends SurefireJUnit4IntegrationTestCase
             .verifyTextInLog( "Running pkg.TestNGTest" )
             .verifyTextInLog(
                 "Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider" );
-
     }
 
     @Test

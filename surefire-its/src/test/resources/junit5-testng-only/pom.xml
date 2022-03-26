@@ -24,10 +24,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.example</groupId>
-  <artifactId>testng-junit5</artifactId>
+  <artifactId>testng-only-junit5</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <description>Project with mixed TestNG and JUnit5 tests.</description>
+  <description>Project with only TestNG tests executed by JUnit Platform</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -60,34 +60,5 @@
       </plugins>
     </pluginManagement>
   </build>
-
-  <profiles>
-    <profile>
-      <id>junit5-engine</id>
-      <dependencies>
-        <dependency>
-          <groupId>org.junit.jupiter</groupId>
-          <artifactId>junit-jupiter-engine</artifactId>
-          <!-- TODO check with next version of testng-engine -->
-          <!-- we have old junit-platform-commons:1.7.2 in dependency tree -->
-          <version>5.7.2</version>
-          <scope>test</scope>
-        </dependency>
-      </dependencies>
-    </profile>
-    <profile>
-      <id>junit5-api</id>
-      <dependencies>
-        <dependency>
-          <groupId>org.junit.jupiter</groupId>
-          <artifactId>junit-jupiter-api</artifactId>
-          <!-- junit-jupiter-api has junit-platform-commons as nearest definition -->
-          <!-- so junit-platform-commons:1.8.2 wins ;-) -->
-          <version>5.8.2</version>
-          <scope>test</scope>
-        </dependency>
-      </dependencies>
-    </profile>
-  </profiles>
 
 </project>
